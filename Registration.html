@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Registration page </title>
+    <style>
+    fieldset{
+        width:500px;
+        background-color: aqua;
+    }
+    table tr td{
+        padding-top:6px;
+        padding-bottom:6px;
+    }
+    body{
+        background-color:antiquewhite;
+    }
+</style>
+<script>
+    function validate(){
+        let fn=frm.fname.value;
+        for(let x in fn){
+            let ch=fn.charCodeAt(x);
+            if(ch<65||ch>97||ch>122){
+                alert("Phone number should be exactly 10 digits")
+                return false;
+                }
+                let reg="@";
+                let mail1=frm.mail.value;
+                if(reg.test(mail1))
+                {
+                    alert("Invalid Mail");
+                    return false;
+                }
+                let pwd1=frm.pwd.value;
+                let pwd2=pwd1.length;
+                if(pwd1>8)
+                {
+                    alert("Password should not exceed 8digits");
+                    return false;
+                }
+        }
+    }
+</script>
+</head>
+<body>
+    <center>
+        <h2>Registration</h2>
+        <form name="frm" method="post" action="success.html" onSubmit="return validate()">
+        <fieldset>
+    <table>
+        <tr><td>FirstName:</td>
+            <td><input type="text" name="fname" value="" required/></td></tr>
+   
+    <tr><td>LastName:</td>
+        <td><input type="text" name="lname" value="" required/></td></tr>
+
+<tr><td>PhoneNo:</td>
+    <td><input type="number" name="phone" value="" required/></td></tr>
+
+<tr><td>MailId:</td>
+    <td><input type="email" name="mail" value="" required/></td></tr>
+
+<tr><td>Gender:</td>
+    <td>Male<input type="radio" name="gender" value="male"/></td>
+    <td>Female<input type="radio" name="gender" value="female"/></td>
+</tr>
+<tr>
+    <td>DOB:</td><td><input type="date" name="dob" required/></td>
+</tr>
+<tr>
+    <td>UserName:</td><td><input type="text" name="uname" value="" required/></td>
+</tr>
+<tr>
+    <td>Password:</td><td><input type="password" name="pwd" value="" required/></td>
+</tr>
+<tr>
+    <td>Age:</td><td><input type="number" name="age" value="" required/></td>
+</tr>
+</table>
+<input type="submit" name="submit" value="Registration"/>
+        </fieldset>
+        </form>
+    </center>
+</body>
+</html>
